@@ -1,8 +1,4 @@
 
-To write a clean and minimal **GitHub blog-style README** using your inverter project images without overwhelming the reader, follow this refined approach:
-
----
-
 ## 📈 MOSFET Characteristics
 
 In this section I start with our analysis of MOSFET models present in sky130 pdk. I would be using the 1.8v transistor models, but you can definitely use and experiment with other ones present there. below is the schematic I created in Xschem.
