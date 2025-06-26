@@ -27,56 +27,52 @@ This definitely shows us that the threshold value is between 600mV to 700mV and 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nfet_Ids_vs_Vds.png" width="640">
 
 <br><br>
+Now the above two definitely looks like what the characteristics curves should, but now we need to choose a particular curve that we would do further analysis on.
 
+I also did plot gm and go(or ro) values for the above mosfet. This would be crucial as we can obtain a lot of parameters from these values. Both of these below are for the general dc sweep we did abo
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nfet_gds.png" width="640">
 
 <br><br>
-Now the above two definitely looks like what the characteristics curves should, but now we need to choose a particular curve that we would do further analysis on.
-
-I also did plot gm and go(or ro) values for the above mosfet. This would be crucial as we can obtain a lot of parameters from these values. Both of these below are for the general dc sweep we did above.
-
-
 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nfet_go.png" width="640">
 
 <br><br>
-
+Since I am making an inverter, let's choose the highest value avialable for the Vds, that is 1.8V. So to do that, we just change the value of Vds source to 1.8 and then hit netlist, then simulate to simulate the circuit.
 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nfet_ids_vs_Vgs_Vds18.png" width="640">
 
 <br><br>
-Since I am making an inverter, let's choose the highest value avialable for the Vds, that is 1.8V. So to do that, we just change the value of Vds source to 1.8 and then hit netlist, then simulate to simulate the circuit.
+This above plot also tells us the value of current at this value of Vgs which is around 320uA. Next step is to calculate the Gm, that is the transconductance parameter. To do that we simple type the commands as shown in the console in the left hand side. The deriv() function takes the derivative with respect to the independent variable present at the current simulation. From the definition of Gm we are aware that it is dIds/dVds. Hence, I did the same to plot the Gm of this nfet. After this I measured the value at 1.8V.
 
 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nfet_Gm_at_Vds018.png" width="640">
 
 <br><br>
-This above plot also tells us the value of current at this value of Vgs which is around 320uA. Next step is to calculate the Gm, that is the transconductance parameter. To do that we simple type the commands as shown in the console in the left hand side. The deriv() function takes the derivative with respect to the independent variable present at the current simulation. From the definition of Gm we are aware that it is dIds/dVds. Hence, I did the same to plot the Gm of this nfet. After this I measured the value at 1.8V.
-
+Similaraly I did the same for Ids vs Vds and also used that to find rds
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nfet_ids_vs_Vds_Vgs18.png" width="640">
 
 <br><br>
-Similaraly I did the same for Ids vs Vds and also used that to find rds
+
 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nfet_rds_Vgs18.png" width="640">
 
 <br><br>
-
+Hence, we now have all our important values we needed. Same can be done for a PMOS. Motive is same, but expecially to extract the value of Aspect ratio for which the current is the same in both NMOS and PMOS. I have done some experimentation and found that at W/L of PMOS = 4 * (Aspect ratio of NMOS), the current value is pretty close. So, we found the NMOS had a current of 317 microamps while PMOS has the current of 322 microamps (both at |Vgs| = 1.8V). 
 
 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/pfet_test_ckt.png" width="640">
 
 <br><br>
-Hence, we now have all our important values we needed. Same can be done for a PMOS. Motive is same, but expecially to extract the value of Aspect ratio for which the current is the same in both NMOS and PMOS. I have done some experimentation and found that at W/L of PMOS = 4 * (Aspect ratio of NMOS), the current value is pretty close. So, we found the NMOS had a current of 317 microamps while PMOS has the current of 322 microamps (both at |Vgs| = 1.8V). 
+
 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/pfet_Ids_vs_Vds_for_Vsg018.png" width="640">
 
 <br><br>
-
+The last one might be the most important one for an Inverter 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nmos_as_inverter.png" width="640">
 
 <br><br>
-The last one might be the most important one for an Inverter 
+
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nmos_tran_inverter.png" width="640">
 
 <br><br>
