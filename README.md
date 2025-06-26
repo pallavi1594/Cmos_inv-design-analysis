@@ -197,10 +197,6 @@ Plot and measurement:
 <br><br>
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/cmos_inv_vih_vil_val.png" width="640">
 
----
-
-<img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/cmos_inv_curr_plot.png" width="640">
-
 The commands used:
 
 * Declared a helper function to visualize slope ≥ 1
