@@ -25,7 +25,7 @@ This definitely shows us that the threshold value is between 600mV to 700mV and 
 <br><br>
 Now the above two definitely looks like what the characteristics curves should, but now we need to choose a particular curve that we would do further analysis on.
 
-I also did plot gm and go(or ro) values for the above mosfet. This would be crucial as we can obtain a lot of parameters from these values. Both of these below are for the general dc sweep we did abo
+I also did plot gm and go(or ro) values for the above mosfet. This would be crucial as we can obtain a lot of parameters from these values. Both of these below are for the general dc sweep we did above.
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nfet_gds.png" width="640">
 
 <br><br>
