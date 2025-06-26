@@ -60,18 +60,28 @@ Hence, we now have all our important values we needed. Same can be done for a PM
 
 <br><br>
 
-
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/pfet_Ids_vs_Vds_for_Vsg018.png" width="640">
-
-<br><br>
 The last one might be the most important one for an Inverter 
+<br><br>
+Here's a clean headline and intro block for section **2.2** in your GitHub blog:
+
+---
+
+## 🧠 2.2 Strong 0 and Weak 1 — NMOS as Inverter
+  What does the above mean? Look at the graph below,
+ 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nmos_as_inverter.png" width="640">
 
 <br><br>
 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/nmos_tran_inverter.png" width="640">
 
+You can see that, when a square wave is applied to the input of NMOS, when it is LOW(0V), the output goes to HIGH(1.8V). But when the input is HIGH(1.8V), the output goes to a value that is much larger than 0V. This is due to the fact that when Vgs is 1.8V, the NMOS is in linear region. This is where the MOSFET acts as a voltage controlled resistor. At this point, the output is connected to a Voltage Divider Configuration. That is the output takes the value which is defined by the voltage across the resistance of the mosfet. Hence, NMOS is able to transmit STRONG 0, but not a STRONG 1. So NMOS is Strong 0 but a Weak 1
+
 <br><br>
+
+ ##   Weak 0 and strong 1
+ Again, some plots will clear the idea
 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/pmos_as_inverter.png" width="640">
 
@@ -79,9 +89,19 @@ The last one might be the most important one for an Inverter
 
 <img src="https://github.com/D-curs-D/Inverter-design-and-analysis-using-sky130pdk/raw/main/Images/pmos_tran_inverter.png" width="640">
 
+The reasoning is the same as the previous section
+
+
+Hence, neither NMOS nor PMOS would make a great inverter on their own. So a plethora of configurations were taken into account, but at the last, only one stands as the most popular format of circuit design using mosfets. It is referred to as a CMOS configuration
+
+
 <br><br>
 
 ## 💡 CMOS Inverter Design
+
+From earlier observations, neither NMOS nor PMOS alone can produce both strong logic levels. However, their behaviors complement each other — NMOS passes a strong 0, PMOS passes a strong 1.
+
+By connecting a PMOS between V<sub>DD</sub> and output and an NMOS between output and GND, we create a configuration where one pulls up while the other pulls down — but never both at once. This is the foundation of the CMOS inverter.
 
 <img src="https://user-images.githubusercontent.com/43693407/143431624-72bece76-3d5a-41fd-bca7-d21beaecd977.gif" width="640">
 
